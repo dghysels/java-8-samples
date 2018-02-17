@@ -1,8 +1,8 @@
 package objects.package2;
 
-import objects.package1.County;
+import objects.package1.Location;
 
-public class State extends County{
+public class State extends Location{
 
 	public void doStateWork(){
 		County county = new County();
@@ -13,7 +13,7 @@ public class State extends County{
 	}
 	
 	@Override
-	public void doCountywork(){
-		System.out.println("doing county work in state!");
+	public void doLocationWork(){
+		System.out.println("doing location work in state!");
 	}
 }

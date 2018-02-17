@@ -1,6 +1,8 @@
-package objects.package1;
+package objects.package2;
 
-public class County {
+import objects.package1.Location;
+
+public class County extends Location{
 	public int countypublicvalue = 1;
 	private int countyprivatevalue  = 1;
 	int countypackagevalue = 1;
@@ -8,13 +10,13 @@ public class County {
 	
 	public static void main(String args[]){
 		County county = new County();
-		City city = new City();
+		
+		county.getLocationName();
 		
 	}
 	
-	public void doCountywork(){
-		System.out.println("doing county work");
+	@Override
+	public void doLocationWork(){
+		System.out.println("doing county location work");
 	}
-	
-	
 }

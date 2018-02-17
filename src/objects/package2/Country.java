@@ -1,9 +1,8 @@
 package objects.package2;
 
-import objects.package1.City;
-import objects.package1.County;
+import objects.package1.Location;
 
-public class Country extends County{
+public class Country extends Location{
 
 	public void doCountryWork(){
 		City city = new City();
@@ -12,7 +11,7 @@ public class Country extends County{
 		
 		// compile failure
 		//this.countrypackagevalue= 5;
-		this.countyprotectedvalue = 5;
+		this.locationprotectedvalue = 5;
 		
 		// compile failure
 		//city.citypackagevalue = 2;

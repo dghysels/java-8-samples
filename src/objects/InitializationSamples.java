@@ -1,7 +1,8 @@
 package objects;
 
-import objects.package1.County;
+import objects.package1.Location;
 import objects.package2.Country;
+import objects.package2.County;
 import objects.package2.State;
 
 public class InitializationSamples {
@@ -20,14 +21,13 @@ public class InitializationSamples {
 		System.out.println("a null string " + null);
 		
 		sample.castclasses();
-		sample.assignStuff();
 		
 	}
 	
 	public void castclasses(){
 		try{
 			// RUNTIME ERROR - objects.package2.Class2 cannot be cast to objects.package1.Class3
-			Country c3 = (Country)new County();
+			Country c3 = (Country)new Location();
 			c3.doCountryWork();
 		}
 		catch(Exception e){
@@ -36,57 +36,34 @@ public class InitializationSamples {
 		
 		// RUNTIME ERROR - objects.package2.Class2 cannot be cast to objects.package2.Class4
 		try{
-			State c4 = (State)new County();
-			c4.doCountywork();
+			State c4 = (State)new Location();
+			c4.doLocationWork();
 			c4.doStateWork();
 		}
 		catch(Exception e){
 			System.out.println(e.getMessage());
 		}
 		
-		County c2 = new County();
+		Location c2 = new Location();
 		// RUNTIME ERROR
 		try{
 			State c4from2 = (State) c2;
-			c4from2.doCountywork();
+			c4from2.doLocationWork();
 			c4from2.doStateWork();
 		}
 		catch(Throwable e){
 			System.out.println(e.getMessage());
 		}
 		
-		County c2fromc3 = new Country();
+		Location locationFromCountry = new Country();
 		
-		c2fromc3.doCountywork();
+		locationFromCountry.doLocationWork();
 		
-		County c2fromc4 = new State();
+		Location locationFromState = new State();
 		
-		c2fromc4.doCountywork();
+		locationFromState.doLocationWork();
 	}
 	
-	public void assignStuff(){
-		int value = new Integer(4);
-		System.out.println("integer assigned from Integer " + value);
-		Integer integer = 5;
-		System.out.println("integer assigned from int " + integer);
-		
-		value = integer;
-		
-		Integer integer2 = new Integer("5");
-		System.out.println("integer assigned from string " + integer2);
-		
-		int integer3 = Integer.parseInt("5");
-		System.out.println("integer assigned from parseint " + integer3);
-		
-		// Exception!
-		try{
-			int integer4 = new Integer("abc");
-		}
-		catch(Exception e){
-			System.out.println(e.getMessage());
-		}
-		
-	}
 	
 	public static void main(){
 		// does not compile
